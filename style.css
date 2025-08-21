@@ -1,0 +1,226 @@
+/*
+ * Alapvető CSS stílusok a Gépelős Játék webalkalmazáshoz.
+ * A stílusok célja a felhasználói felület (UI) vizuális megjelenésének meghatározása.
+ */
+
+/* H1 címke stílusa */
+h1 {
+	font-size: 72px;
+}
+
+/* * Body (test) stílusa:
+ * - betűtípus beállítása
+ * - flexbox használata a tartalom középre igazításához a képernyőn
+ * - teljes képernyőmagasság beállítása (100vh) és alap margó eltávolítása
+ * - világosszürke háttérszín
+ */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Játékkonténer stílusa */
+.game-container {
+    text-align: center;
+    max-width: 900px;
+}
+
+/* Szó kijelző konténer stílusa: flex oszlop elrendezésben, a szavak és a beírt szöveg számára */
+.word-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* A begépelendő és a begépelt szöveg stílusa */
+.word-display, .typed-text {
+    font-size: 48px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+    height: 60px;
+}
+
+/* Egyedi karakter (betű) stílusa */
+.char {
+    display: inline-block;
+    padding: 2px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #333;
+    transition: background-color 0.1s; /* Átmenet animáció a háttérszínhez */
+    min-width: 30px;
+    text-align: center;
+}
+
+/* A begépelt karakter stílusa */
+.typed-char {
+    display: inline-block;
+    padding: 2px;
+    border-radius: 4px;
+    background-color: transparent;
+    min-width: 30px;
+    text-align: center;
+    color: #333;
+}
+
+/* Stílus a helyesen begépelt karakterekhez */
+.correct {
+    background-color: lightgreen;
+}
+
+/* Stílus a hibásan begépelt karakterekhez */
+.incorrect {
+    background-color: lightcoral;
+}
+
+/* Státusz sáv stílusa */
+.status-bar {
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Billentyűzet konténer stílusa */
+.keyboard {
+    margin-top: 50px;
+    user-select: none; /* Megakadályozza a billentyűk kijelölését */
+}
+
+/* Billentyűzet sorának stílusa */
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+/* Egyedi billentyű stílusa */
+.key {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 3px;
+    transition: background-color 0.1s, transform 0.1s;
+}
+
+/* Billentyű stílusa, ha az egérrel fölé mozgatják */
+.key:hover {
+    background-color: #e0e0e0;
+}
+
+/* Billentyű stílusa, ha megnyomják */
+.key-pressed {
+    background-color: #333;
+    color: #fff;
+    transform: scale(0.95); /* Kisebbre zsugorodik a nyomás érzékeltetésére */
+}
+
+/* Speciális stílus a szóköz billentyűhöz */
+.space-key {
+    flex-grow: 2;
+    width: auto;
+}
+
+/* Billentyűzet sorok behúzása a valós billentyűzet elrendezésének szimulálásához */
+.keyboard-row:nth-child(2) {
+    padding-left: 20px;
+}
+
+.keyboard-row:nth-child(3) {
+    padding-left: 40px;
+}
+
+.keyboard-row:nth-child(4) {
+    padding-left: 60px;
+}
+
+/*
+ * Különleges stílusok a beállítások és eredmények képernyőkhöz
+ */
+.setup-screen, .results-screen {
+    text-align: center;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.setup-screen h2, .results-screen h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.setup-screen label {
+    font-size: 18px;
+    margin: 15px;
+}
+
+.setup-screen input[type="text"], .setup-screen input[type="number"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.setup-screen button, .results-screen button {
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+}
+
+.setup-screen button:hover, .results-screen button:hover {
+    transform: translateY(-2px); /* Enyhe felugró hatás a gombra */
+}
+
+/* Eredménytáblázat stílusa */
+#results-table {
+    width: 100%;
+    border-collapse: collapse; /* Eltávolítja a dupla szegélyeket */
+    margin-top: 20px;
+}
+
+#results-table th, #results-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Érem ikon stílusa az eredmények táblázatában */
+.medal {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* Eredmények képernyő gombjainak konténer stílusa */
+.results-buttons {
+    margin-top: 20px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gépelős Játék</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="setup-screen" class="setup-screen">
+        <h2>Játék beállításai</h2>
+        <label for="playerName">Neved:</label>
+        <input type="text" id="playerName" value="Játékos">
+        <label for="wordCount">Szavak száma:</label>
+        <input type="number" id="wordCount" min="5" max="100" value="20">
+        <button id="startGameBtn">Játék indítása</button>
+    </div>
+
+    <div class="game-container" style="display: none;">
+		<h1>DD TYPER_<h1><br>
+        <div class="word-display-container">
+            <div id="word-display" class="word-display"></div>
+            <div id="typed-text" class="typed-text"></div>
+        </div>
+        <div id="status-bar" class="status-bar">
+            <span>Pontszám: <span id="score">0</span></span>
+            <span>Helyes: <span id="correct-count">0</span></span>
+            <span>Hibás: <span id="error-count">0</span></span>
+        </div>
+        <div id="keyboard" class="keyboard"></div>
+    </div>
+
+    <div id="results-screen" class="results-screen" style="display: none;">
+        <h2>Eredmények</h2>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>Helyezés</th>
+                    <th>Név</th>
+                    <th>Pontszám</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="results-buttons">
+            <button id="newGameBtn">Új játék</button>
+            <button id="clearResultsBtn">Eredmények törlése</button>
+        </div>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
